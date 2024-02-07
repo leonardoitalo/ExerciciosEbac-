@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <input type="text" name="campo-tarefa" id="campo-tarefa" placeholder="Nome da tarefa">
+        <button id="botao" type="button">Cadastar</button>
+        <form id="form-tarefas">
+            <ul id="lista-tarefas">
+
+            </ul>
+        </form>
+    </div>
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $("#botao").click(function() {
+                const tarefa = $("#campo-tarefa").val();
+                $(`<li>${tarefa}</li>`).appendTo('#lista-tarefas');
+            })
+            $("#form-tarefas").on("click", "#lista-tarefas li", function() {
+                $(this).css("text-decoration", "line-through")
+            })
+        })
+
+        // $(`<li>${varialvelDoInput}</li>`).appendTo('#lista-tarefas');
+    </script>
+</body>
+</html>
+
