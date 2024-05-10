@@ -1,0 +1,78 @@
+@use "../abstract/var";
+@use "../abstract/mixins";
+
+.header {
+    background-color: var.$color-cyan-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+
+    &-title {
+        @include mixins.ff-fs-cl(var.$ft-title, 1.2em, var.$color-title)
+    }
+
+    &-nav {
+        display: flex;
+        flex-direction: row;
+
+        &-menu {
+            list-style: none;
+            display: flex;
+            gap: 0.5em;
+
+            &-link {
+                text-decoration: none;
+                color: var.$color-tx;
+                font-family: var.$ft-tx;
+                display: block;
+                padding: 1em;
+                border-radius: 0.5em;
+            }
+        }
+    }
+}
+
+.header-nav__label,
+.checkbox {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .header-nav-menu {
+        display: none;
+        position: absolute;
+        top: 4em;
+        left: 0;
+        text-align: center;
+        background-color: var.$color-cyan-light;
+        width: 100%;
+        z-index: 1;
+        transition: 0.5s;
+
+        &-link {
+            padding: 1em 0;
+            margin-inline: 1em;
+            border-bottom: 0.0625em solid rgba(0, 0, 0, 0.16);
+            border-radius: 0;
+        }
+    }
+
+    .header-nav__label {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        color: var.$color-beige;
+        font-size: 1em;
+        padding: 0.2em;
+        cursor: pointer;
+    }
+
+    .material-symbols-outlined {
+        font-size: 2em;
+    }
+
+    .checkbox:checked ~ .header-nav-menu {
+        display: block;
+    }
+}
