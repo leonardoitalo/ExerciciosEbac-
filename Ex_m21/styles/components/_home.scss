@@ -1,0 +1,40 @@
+@use "../abstract/var";
+@use "../abstract/mixins";
+
+body {
+    width: auto;
+    background-blend-mode: luminosity;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 1em;
+    gap: 1.5em;
+    flex-direction: column;
+    background-image: url("/imgs/home-img.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var.$color-tx;
+    min-height: 100vh;
+
+    &__title {
+        @include mixins.ff-fs-cl(var.$ft-title, 3em, var.$color-title);
+        text-shadow: 1px 1px 2px black;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    &__subtitle {
+        font-family: var.$ft-st-home;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    &__link {
+        font-family: var.$ft-tx;
+        color: var.$color-tx;
+    }
+}
